@@ -18,7 +18,7 @@ const fixture = `
 
 test(t => {
 	const x = fn(fixture);
-	t.same(Object.keys(x.flags), ['rainbow', 'magic', 'pony', 'color']);
+	t.deepEqual(Object.keys(x.flags), ['rainbow', 'magic', 'pony', 'color']);
 	t.is(x.flags.rainbow.description, 'Lorem ipsum dolor sit amet');
 	t.is(x.flags.magic.alias, 'm');
 	t.is(x.aliases.m, 'magic');
