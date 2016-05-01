@@ -1,6 +1,6 @@
 'use strict';
 var execall = require('execall');
-var re = /^\s*[^$]\s*(?:-([a-z-]), )?--([a-z-]+) +(.*)$/igm;
+var re = /^\s*[^$]\s*(?:-([a-z-]),[ \t]+)?--([a-z-]+) +(.*)$/igm;
 
 module.exports = function (str) {
 	var ret = {
