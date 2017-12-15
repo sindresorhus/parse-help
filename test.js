@@ -1,5 +1,5 @@
 import test from 'ava';
-import fn from './';
+import m from '.';
 
 const fixture = `
 	Usage
@@ -19,7 +19,7 @@ const fixture = `
 `;
 
 test(t => {
-	const x = fn(fixture);
+	const x = m(fixture);
 	t.deepEqual(Object.keys(x.flags), ['rainbow', 'magic', 'pony', 'color', 'help']);
 	t.is(x.flags.rainbow.description, 'Lorem ipsum dolor sit amet');
 	t.is(x.flags.magic.alias, 'm');

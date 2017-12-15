@@ -1,32 +1,35 @@
 'use strict';
-var execall = require('execall');
-var re = /^\s*[^$]\s*(?:-([a-z-]),[ \t]+)?--([a-z-]+) +(.*)$/igm;
+const execall = require('execall');
 
-module.exports = function (str) {
-	var ret = {
+module.exports = input => {
+	const ret = {
 		flags: {},
 		aliases: {}
 	};
 
-	execall(re, str).forEach(function (x) {
-		var s = x.sub;
+	const regex = /^\s*[^$]\s*(?:-([a-z-]),[ \t]+)?--([a-z-]+) +(.*)$/igm;
 
-		if (s[0]) {
-			ret.aliases[s[0]] = s[1];
+	for (const match of execall(regex, input)) {
+		const submatch = match.sub;
+
+		if (submatch[0]) {
+			ret.aliases[submatch[0]] = submatch[1];
 		}
 
-		if (s[1]) {
-			var f = ret.flags[s[1]] = {};
+		if (submatch[1]) {
+			ret.flags[submatch[1]] = {};
 
-			if (s[0]) {
-				f.alias = s[0];
+			const flag = ret.flags[submatch[1]];
+
+			if (submatch[0]) {
+				flag.alias = submatch[0];
 			}
 
-			if (s[2]) {
-				f.description = s[2];
+			if (submatch[2]) {
+				flag.description = submatch[2];
 			}
 		}
-	});
+	}
 
 	return ret;
 };

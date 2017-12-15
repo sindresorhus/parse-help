@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save parse-help
+$ npm install parse-help
 ```
 
 
@@ -65,4 +65,4 @@ parseHelp(help);
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
