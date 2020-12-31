@@ -1,4 +1,4 @@
-# parse-help [![Build Status](https://travis-ci.org/sindresorhus/parse-help.svg?branch=master)](https://travis-ci.org/sindresorhus/parse-help)
+# parse-help
 
 > Parse CLI help output
 
