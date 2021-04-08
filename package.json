@@ -4,13 +4,16 @@
 	"description": "Parse CLI help output",
 	"license": "MIT",
 	"repository": "sindresorhus/parse-help",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
+	"type": "module",
+	"exports": "./index.js",
 	"engines": {
-		"node": ">=4"
+		"node": ">=12"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -32,10 +35,10 @@
 		"short"
 	],
 	"dependencies": {
-		"execall": "^1.0.0"
+		"execall": "^3.0.0"
 	},
 	"devDependencies": {
-		"ava": "*",
-		"xo": "*"
+		"ava": "^3.15.0",
+		"xo": "^0.38.2"
 	}
 }

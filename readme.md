@@ -2,18 +2,16 @@
 
 > Parse CLI help output
 
-
 ## Install
 
 ```
 $ npm install parse-help
 ```
 
-
 ## Usage
 
 ```js
-const parseHelp = require('parse-help');
+import parseHelp from 'parse-help';
 
 const help = `
 	Usage
@@ -57,12 +55,6 @@ parseHelp(help);
 */
 ```
 
-
 ## Related
 
 - [aliases](https://github.com/sindresorhus/aliases) - Parse flag aliases in CLI help output
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

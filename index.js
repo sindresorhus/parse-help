@@ -1,35 +1,34 @@
-'use strict';
-const execall = require('execall');
+import execall from 'execall';
 
-module.exports = input => {
-	const ret = {
+export default function parseHelp(string) {
+	const returnValue = {
 		flags: {},
 		aliases: {}
 	};
 
-	const regex = /^\s*[^$]\s*(?:-([a-z-]),[ \t]+)?--([a-z-]+) +(.*)$/igm;
+	const regex = /^\s*[^$]\s*(?:-([a-z-]),[ \t]+)?--([a-z-]+) +(.*)$/gim;
 
-	for (const match of execall(regex, input)) {
-		const submatch = match.sub;
+	for (const {subMatches} of execall(regex, string)) {
+		const [shortFlag, longFlag, description] = subMatches;
 
-		if (submatch[0]) {
-			ret.aliases[submatch[0]] = submatch[1];
+		if (shortFlag) {
+			returnValue.aliases[shortFlag] = longFlag;
 		}
 
-		if (submatch[1]) {
-			ret.flags[submatch[1]] = {};
+		if (longFlag) {
+			returnValue.flags[longFlag] = {};
 
-			const flag = ret.flags[submatch[1]];
+			const flag = returnValue.flags[longFlag];
 
-			if (submatch[0]) {
-				flag.alias = submatch[0];
+			if (shortFlag) {
+				flag.alias = shortFlag;
 			}
 
-			if (submatch[2]) {
-				flag.description = submatch[2];
+			if (description) {
+				flag.description = description;
 			}
 		}
 	}
 
-	return ret;
-};
+	return returnValue;
+}
