@@ -1,6 +1,6 @@
 {
 	"name": "parse-help",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Parse CLI help output",
 	"license": "MIT",
 	"repository": "sindresorhus/parse-help",
