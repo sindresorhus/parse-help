@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install parse-help
+```sh
+npm install parse-help
 ```
 
 ## Usage
